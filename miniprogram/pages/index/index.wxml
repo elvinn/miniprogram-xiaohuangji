@@ -7,8 +7,11 @@
         src="{{item}}"
         mode="aspectFit"
         lazy-load
+        show-menu-by-longpress
         data-url="{{item}}"
-        catch:tap="onTapMemo"
+        bindtouchstart="bindTouchStart"
+        bindtouchend="bindTouchEnd"
+        bindtap="bindTap"
       />
     </block>
   </view>
