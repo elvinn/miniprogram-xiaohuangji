@@ -13,15 +13,15 @@ Page({
 
   onShareAppMessage() { },
 
-  bindTouchStart(event) {
+  onTouchStart(event) {
     this.startTime = event.timeStamp;
   },
 
-  bindTouchEnd(event) {
+  onTouchEnd(event) {
     this.endTime = event.timeStamp;
   },
 
-  bindTap: function (event) {
+  onTap(event) {
     if (this.endTime - this.startTime >= 350) {
       // 说明是长按，无需预览图片
       return;
