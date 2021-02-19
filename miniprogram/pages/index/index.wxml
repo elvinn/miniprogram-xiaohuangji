@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="view-hint">点击表情包可分享给朋友或者保存</view>
+  <view class="memo-list">
+    <block wx:for="{{urlList}}" wx:key="*this">
+      <image
+        class="memo"
+        src="{{item}}"
+        mode="aspectFit"
+        lazy-load
+        data-url="{{item}}"
+        catch:tap="onTapMemo"
+      />
+    </block>
+  </view>
+</view>
