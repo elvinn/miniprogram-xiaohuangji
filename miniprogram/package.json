@@ -1,0 +1,24 @@
+{
+  "name": "miniprogram-xiaohuangji",
+  "version": "1.0.0",
+  "description": "方便地分享表情包给微信好友。",
+  "main": "index.js",
+  "dependencies": {
+    "@miniprogram-component-plus/tabs": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elvinn/miniprogram-xiaohuangji.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elvinn/miniprogram-xiaohuangji/issues"
+  },
+  "homepage": "https://github.com/elvinn/miniprogram-xiaohuangji#readme"
+}

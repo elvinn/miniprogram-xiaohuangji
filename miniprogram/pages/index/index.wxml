@@ -1,18 +1,34 @@
 <view class="container">
-  <view class="view-hint">点击表情包可分享给朋友或者保存</view>
-  <view class="memo-list">
-    <block wx:for="{{urlList}}" wx:key="*this">
-      <image
-        class="memo"
-        src="{{item}}"
-        mode="aspectFit"
-        lazy-load
-        show-menu-by-longpress
-        data-url="{{item}}"
-        bindtouchstart="bindTouchStart"
-        bindtouchend="bindTouchEnd"
-        bindtap="bindTap"
-      />
+  <mp-tabs 
+    tabs="{{imageDataList}}" 
+    activeTab="{{activeTab}}" 
+    swiperClass="weui-tabs-swiper"
+    bindtabclick="onTabClick"
+    bindchange="onChange"
+    activeClass="tab-bar-title__selected"
+    
+  >
+    <block wx:for="{{imageDataList}}" wx:key="title">
+      <view class="tab-content" data-set="{{item}}" slot="tab-content-{{index}}" bind:tap="handleClick" >
+        <view class="memo-list">
+          <block wx:for="{{item.urlList}}" wx:key="*this" wx:for-item="url">
+            <image
+              class="memo"
+              src="{{url}}"
+              mode="aspectFit"
+              lazy-load
+              show-menu-by-longpress
+              data-url="{{url}}"
+              bindtouchstart="bindTouchStart"
+              bindtouchend="bindTouchEnd"
+              bindtap="bindTap"
+            />
+          </block>
+        </view> 
+      </view>
     </block>
-  </view>
+  </mp-tabs>
+  
+  <view class="view-hint">点击表情包可分享给朋友或者保存</view>
+  
 </view>

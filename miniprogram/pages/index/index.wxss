@@ -26,6 +26,7 @@ page {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  padding-bottom: 150rpx;
 }
 
 .memo {
@@ -34,4 +35,44 @@ page {
   margin: 10rpx;
   border: 1rpx solid #eee;
   border-radius: 10rpx;
+}
+
+/* tab 样式重写 */
+mp-tabs {
+  width: 100%;
+}
+
+.weui-tabs {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.weui-tabs-bar__wrp {
+  padding: 30rpx 0 10rpx;
+  height: 60rpx;
+  background: transparent !important;
+}
+
+.weui-tabs-swiper {
+  flex: 1;
+}
+
+.weui-tabs-swiper swiper-item {
+  overflow: scroll;
+}
+
+.weui-tabs-bar__item {
+  background: transparent !important;
+}
+
+.weui-tabs-bar__title {
+  font-size: 32rpx;
+  width: 150rpx;
+  text-align: center;
+}
+
+.tab-bar-title__selected {
+  font-size: 36rpx;
+  border-bottom-color: #fdd868 !important;
 }
