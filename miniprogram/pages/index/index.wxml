@@ -19,9 +19,9 @@
               lazy-load
               show-menu-by-longpress
               data-url="{{url}}"
-              bindtouchstart="bindTouchStart"
-              bindtouchend="bindTouchEnd"
-              bindtap="bindTap"
+              bindtouchstart="onTouchStart"
+              bindtouchend="onTouchEnd"
+              bindtap="onTap"
             />
           </block>
         </view> 

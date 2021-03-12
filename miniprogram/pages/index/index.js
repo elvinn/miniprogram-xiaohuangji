@@ -27,9 +27,19 @@ Page({
 
   onShareAppMessage() { },
 
-  onTabClick() {},
+  onTabClick(e) {
+    const index = e.detail.index
+    this.setData({ 
+      activeTab: index 
+    })
+  },
 
-  onChange() {},
+  onChange(e) {
+    const index = e.detail.index
+    this.setData({ 
+      activeTab: index 
+    })
+  },
   
   onTouchStart(event) {
     this.startTime = event.timeStamp;
