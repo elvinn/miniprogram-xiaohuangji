@@ -12,7 +12,8 @@ const originImageData = [
 ]
 const imageDataList = originImageData.map((item) => {
   const { urlList = [], title } = item;
-  item.urlList = urlList.map(name => `https://elvinn.cn/img/xiaohuangji/${title}/${name}`);
+  // encodeURI 一定需要，不然有中文的话会导致图片长按发送给朋友失败
+  item.urlList = urlList.map(name => encodeURI(`https://elvinn.cn/img/xiaohuangji/${title}/${name}`));
   return item;
 });
 
