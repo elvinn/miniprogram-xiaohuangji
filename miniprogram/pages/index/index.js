@@ -26,7 +26,15 @@ Page({
 
   onLoad() {},
 
-  onShareAppMessage() { },
+  onShareAppMessage(event) {
+    wx.reportAnalytics('share_index', {
+      from: event.from,
+    });
+
+    return {
+      title: '一起来看看有趣的表情包吧',
+    };
+  },
 
   onTabClick(e) {
     const index = e.detail.index
@@ -40,6 +48,15 @@ Page({
     this.setData({ 
       activeTab: index 
     })
+
+    const {
+      imageDataList = [],
+    } = this.data;
+
+    wx.reportAnalytics('switch_tab', {
+      tab_name: imageDataList[index].title,
+      tab_index: index,
+    });
   },
   
   onTouchStart(event) {
@@ -51,18 +68,37 @@ Page({
   },
 
   onTap(event) {
-    if (this.endTime - this.startTime >= 350) {
-      // 说明是长按，无需预览图片
-      return;
-    }
-
     const {
       currentTarget: {
         dataset: {
+          index,
           url,
         } = {},
       } = {},
     } = event;
+
+    const {
+      activeTab = 0,
+      imageDataList = [],
+    } = this.data;
+    const tabName = imageDataList[activeTab].title;
+
+    if (this.endTime - this.startTime >= 350) {
+      // 说明是长按，无需预览图片
+      wx.reportAnalytics('long_press_image', {
+        tab_name: tabName,
+        index,
+        url,
+      });
+
+      return;
+    }
+
+    wx.reportAnalytics('click_image', {
+      tab_name: tabName,
+      index,
+      url,
+    });
 
     if (!url) {
       return;
