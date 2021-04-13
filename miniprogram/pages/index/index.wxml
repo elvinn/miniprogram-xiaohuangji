@@ -19,6 +19,7 @@
               lazy-load
               show-menu-by-longpress
               data-url="{{url}}"
+              data-index="{{index}}"
               bindtouchstart="onTouchStart"
               bindtouchend="onTouchEnd"
               bindtap="onTap"
@@ -30,5 +31,9 @@
   </mp-tabs>
   
   <view class="view-hint">点击表情包可分享给朋友或者保存</view>
-  
 </view>
+
+<button id="share-circle" open-type='share'>
+  <image class="mp-icon" src="/svgs/wx-logo-white.svg" />
+  <view class="share-text">分享</view>
+</button>
