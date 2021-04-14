@@ -40,6 +40,7 @@
   "appid": "wx626a859af166d48b",
   "projectname": "miniprogram-xiaohuangji",
   "libVersion": "2.14.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "list": []
@@ -54,8 +55,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-      ]
+      "list": []
     }
   }
 }

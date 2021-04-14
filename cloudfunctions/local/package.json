@@ -1,0 +1,12 @@
+{
+  "name": "local",
+  "version": "1.0.0",
+  "description": "本地通过云开发进行调用",
+  "main": "index.js",
+  "keywords": [],
+  "author": "elvinpeng",
+  "license": "ISC",
+  "dependencies": {
+    "wx-server-sdk": "^2.4.0"
+  }
+}
