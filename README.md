@@ -7,3 +7,7 @@
 ## 表情包来源
 
 1. [小黄鸡表情](https://github.com/esrrhs/xiaohuangji)
+
+## 其它
+
+1. 2021 年 2 月 19 日第一个版本上线。
