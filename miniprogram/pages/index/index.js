@@ -94,7 +94,7 @@ Page({
       return;
     }
 
-    wx.reportAnalytics('click_image', {
+    wx.reportAnalytics('tap_image', {
       tab_name: tabName,
       index,
       url,
