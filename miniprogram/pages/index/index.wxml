@@ -8,23 +8,29 @@
     activeClass="tab-bar-title__selected"
     
   >
-    <block wx:for="{{imageDataList}}" wx:key="title">
-      <view class="tab-content" data-set="{{item}}" slot="tab-content-{{index}}" bind:tap="handleClick" >
+    <block wx:for="{{imageDataList}}" wx:key="title" wx:for-index="tabIndex">
+      <view class="tab-content" data-set="{{item}}" slot="tab-content-{{tabIndex}}" bind:tap="handleClick" >
         <view class="memo-list">
-          <block wx:for="{{item.urlList}}" wx:key="*this" wx:for-item="url">
+          <view class="memo-item" wx:for="{{item.imageList}}" wx:key="url" wx:for-item="image">
             <image
               class="memo"
-              src="{{url}}"
+              src="{{image.url}}"
               mode="aspectFit"
               lazy-load
               show-menu-by-longpress
-              data-url="{{url}}"
+              data-url="{{image.url}}"
               data-index="{{index}}"
+              data-tab-index="{{tabIndex}}"
               bindtouchstart="onTouchStart"
               bindtouchend="onTouchEnd"
               bindtap="onTap"
+              binderror="onImageError"
             />
-          </block>
+            <image wx:if="{{image.status === 'FAIL'}}"
+              class="memo-error"
+              src="/assets/png/cry.png"
+            />
+          </view>
         </view> 
       </view>
     </block>

@@ -29,12 +29,26 @@ page {
   padding-bottom: 150rpx;
 }
 
-.memo {
+.memo-item {
   width: 200rpx;
   height: 200rpx;
   margin: 10rpx;
   border: 1rpx solid #eee;
   border-radius: 10rpx;
+  position: relative;
+}
+
+.memo {
+  width: 100%;
+  height: 100%;
+}
+
+.memo-error {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
 }
 
 /* 分享 icon */
