@@ -5,10 +5,6 @@
  */
 const cloud = require('wx-server-sdk')
 
-cloud.init({
-  env: 'xiaohuangji-7g6y1dxh578e577a',
-});
-
 const db = cloud.database();
 const subscribeMessageCollection = db.collection('subscribeMessageCollection');
 
@@ -49,12 +45,14 @@ const sendMessage = async (event) => {
 
   const isTest = testUserList.length > 0;
 
-  let userList = isTest ? testUserList : [];
+  let userList = isTest ? testUserList.map((OPENID) => ({ OPENID })) : [];
   
-  ({ data: userList } = await subscribeMessageCollection.where({
-    messageId,
-    leftTimes: db.command.gt(0),
-  }).get());
+  if (!isTest) {
+    ({ data: userList } = await subscribeMessageCollection.where({
+      messageId,
+      leftTimes: db.command.gt(0),
+    }).get());
+  }
 
   let successNum = 0;
   let failNum = 0;
