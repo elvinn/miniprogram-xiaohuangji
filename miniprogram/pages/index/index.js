@@ -26,14 +26,40 @@ const imageDataList = originImageData.map((item) => {
   return item;
 });
 
+const messageId = 'oaORJVUD1jVuKxnM0TCyCSJlUJU8CXAcNeVKLYsmWD0';
+const messageType = '新表情包提醒'
+
 // 点击事件顺序：touchstart → longtap → touchend → tap
 Page({
   data: {
     imageDataList,
     activeTab: 0,
+    showSubscribeBtn: false,
   },
 
-  onLoad() {},
+  onLoad() {
+    wx.cloud.callFunction({
+      name: 'message',
+      data: {
+        type: 'query',
+        idList: [messageId],
+      },
+    }).then((res) => {
+      const {
+        result: {
+          code = 0,
+          result: [ subscribeTimes ],
+        } = {},
+      } = res;
+
+      // 请求成功且未订阅过消息
+      if (code === 0 || subscribeTimes === 0) {
+        this.setData({
+          showSubscribeBtn: true,
+        });
+      }
+    });
+  },
 
   onShareAppMessage(event) {
     wx.reportAnalytics('share_index', {
@@ -142,25 +168,23 @@ Page({
   },
 
   subscribeNew() {
-    const id = 'oaORJVUD1jVuKxnM0TCyCSJlUJU8CXAcNeVKLYsmWD0';
-    const type = '新表情包提醒'
-  
-    wx.reportAnalytics('click_subscribe_message', { type });
+    wx.reportAnalytics('click_subscribe_message', { type: messageType });
     
     wx.requestSubscribeMessage({
-      tmplIds: [id],
+      tmplIds: [messageId],
       success: function(res) {
-        wx.reportAnalytics('response_subscribe_message', { type, state: res[id] });
+        wx.reportAnalytics('response_subscribe_message', { type: messageType, state: res[messageId] });
 
-        if (res[id] === 'accept') {
+        if (res[messageId] === 'accept') {
           wx.showToast({
             title: '订阅成功',
             icon: 'success',
           });
           wx.cloud.callFunction({
-            name: 'subscribeMessage',
+            name: 'message',
             data: {
-              idList: [id],
+              type: 'subscribe',
+              idList: [messageId],
             },
           });
         }

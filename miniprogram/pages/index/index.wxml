@@ -36,7 +36,7 @@
     </block>
   </mp-tabs>
   
-  <view class="view-hint" catch:tap="subscribeNew">订阅新的表情包提醒</view>
+  <view class="view-hint" wx:if="{{showSubscribeBtn}}" catch:tap="subscribeNew">订阅新的表情包提醒</view>
 </view>
 
 <button id="share-circle" open-type='share'>

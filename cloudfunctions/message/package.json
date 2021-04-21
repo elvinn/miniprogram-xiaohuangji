@@ -1,7 +1,7 @@
 {
-  "name": "subscribe-message",
+  "name": "message",
   "version": "1.0.0",
-  "description": "记录用户订阅消息",
+  "description": "用户订阅消息相关操作",
   "main": "index.js",
   "keywords": [],
   "author": "elvinpeng",

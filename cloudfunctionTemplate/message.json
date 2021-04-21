@@ -1,0 +1,20 @@
+[
+  {
+    "name": "订阅一条消息",
+    "value": {
+      "type": "subscribe",
+      "idList": [
+        "oaORJVUD1jVuKxnM0TCyCSJlUJU8CXAcNeVKLYsmWD0"
+      ]
+    }
+  },
+  {
+    "name": "查询一条消息订阅次数",
+    "value": {
+      "type": "query",
+      "idList": [
+        "oaORJVUD1jVuKxnM0TCyCSJlUJU8CXAcNeVKLYsmWD0"
+      ]
+    }
+  }
+]
