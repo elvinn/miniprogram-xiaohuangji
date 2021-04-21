@@ -4,5 +4,26 @@
     "value": {
       "type": "submitPages"
     }
+  },
+  {
+    "name": "提醒新的表情包上架",
+    "value": {
+      "type": "sendMessage",
+      "messageId": "oaORJVUD1jVuKxnM0TCyCSJlUJU8CXAcNeVKLYsmWD0",
+      "testUserList": [
+        "oZrKV5Kg_hCoHGVR33egWebu6Tpo"
+      ],
+      "data": {
+        "thing1": {
+          "value": "猴子"
+        },
+        "thing4": {
+          "value": "搞笑的猴子"
+        },
+        "time3": {
+          "value": "2021-04-21 13:20"
+        }
+      }
+    }
   }
 ]

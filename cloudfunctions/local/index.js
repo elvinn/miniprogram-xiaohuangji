@@ -1,8 +1,15 @@
+const cloud = require('wx-server-sdk')
+
+cloud.init({
+  env: 'xiaohuangji-7g6y1dxh578e577a',
+});
+
 const handlerMap = {
   submitPages: require('./logic/submitPages'),
+  sendMessage: require('./logic/sendMessage'),
 };
 
-exports.main = async (event, context) => {
+exports.main = async (event) => {
   const { type } = event; 
 
   const handler = handlerMap[type];
@@ -12,5 +19,5 @@ exports.main = async (event, context) => {
     return;
   }
 
-  handler();
+  await handler(event);
 }
