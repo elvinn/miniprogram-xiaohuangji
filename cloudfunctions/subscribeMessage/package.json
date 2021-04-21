@@ -1,0 +1,12 @@
+{
+  "name": "subscribe-message",
+  "version": "1.0.0",
+  "description": "记录用户订阅消息",
+  "main": "index.js",
+  "keywords": [],
+  "author": "elvinpeng",
+  "license": "ISC",
+  "dependencies": {
+    "wx-server-sdk": "^2.4.0"
+  }
+}

@@ -36,7 +36,7 @@
     </block>
   </mp-tabs>
   
-  <view class="view-hint">点击表情包可分享给朋友或者保存</view>
+  <view class="view-hint" catch:tap="subscribeNew">订阅新的表情包提醒</view>
 </view>
 
 <button id="share-circle" open-type='share'>

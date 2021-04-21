@@ -130,7 +130,6 @@ Page({
     } = event;
 
     const { imageDataList } = this.data;
-
     wx.reportAnalytics('image_fail', {
       tab_name: imageDataList[tabIndex].title,
       index,
@@ -140,5 +139,38 @@ Page({
     imageDataList[tabIndex].imageList[index].status = IMAGE_STATUS.FAIL;
 
     this.setData({ imageDataList });
-  }
+  },
+
+  subscribeNew() {
+    const id = 'oaORJVUD1jVuKxnM0TCyCSJlUJU8CXAcNeVKLYsmWD0';
+    const type = '新表情包提醒'
+  
+    wx.reportAnalytics('click_subscribe_message', { type });
+    
+    wx.requestSubscribeMessage({
+      tmplIds: [id],
+      success: function(res) {
+        wx.reportAnalytics('response_subscribe_message', { type, state: res[id] });
+
+        if (res[id] === 'accept') {
+          wx.showToast({
+            title: '订阅成功',
+            icon: 'success',
+          });
+          wx.cloud.callFunction({
+            name: 'subscribeMessage',
+            data: {
+              idList: [id],
+            },
+          });
+        }
+      },
+      fail: function() {
+        wx.showToast({
+          title: '订阅失败',
+          icon: 'error',
+        });
+      },
+    })
+  },
 })
