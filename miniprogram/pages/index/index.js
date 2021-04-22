@@ -170,6 +170,7 @@ Page({
   subscribeNew() {
     wx.reportAnalytics('click_subscribe_message', { type: messageType });
     
+    const self = this;
     wx.requestSubscribeMessage({
       tmplIds: [messageId],
       success: function(res) {
@@ -180,12 +181,17 @@ Page({
             title: '订阅成功',
             icon: 'success',
           });
+
           wx.cloud.callFunction({
             name: 'message',
             data: {
               type: 'subscribe',
               idList: [messageId],
             },
+          });
+
+          self.setData({
+            showSubscribeBtn: false,
           });
         }
       },
