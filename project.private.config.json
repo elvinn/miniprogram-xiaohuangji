@@ -1,0 +1,23 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页（选中 tab）",
+          "pathName": "pages/index/index",
+          "query": "tabName=胖虎",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

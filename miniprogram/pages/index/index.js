@@ -33,11 +33,41 @@ const messageType = '新表情包提醒'
 Page({
   data: {
     imageDataList,
-    activeTab: 0,
+    activeTab: 0, // 当前选中的 tab 下标
     showSubscribeBtn: false,
   },
 
-  onLoad() {
+  onLoad({ tabName = '' }) {
+    this.initTab(tabName);
+    this.fetchMessageData();
+  },
+
+  onShareAppMessage(event) {
+    wx.reportAnalytics('share_index', {
+      from: event.from,
+    });
+
+    return {
+      title: '一起来看看有趣的表情包吧',
+    };
+  },
+
+  initTab(imageDataList = '') {
+    if (!tabName) {
+      return;
+    }
+
+    const { imageDataList = [] } = this.data;
+    for (let i = 0; i < imageDataList.length; i++) {
+      const { title = '' } = imageDataList[i] || {};
+      if (title === tabName) {
+        this.setData({ activeTab: i });
+      }
+    }
+  },
+
+  // 获取订阅消息数据
+  fetchMessageData() {
     wx.cloud.callFunction({
       name: 'message',
       data: {
@@ -59,16 +89,6 @@ Page({
         });
       }
     });
-  },
-
-  onShareAppMessage(event) {
-    wx.reportAnalytics('share_index', {
-      from: event.from,
-    });
-
-    return {
-      title: '一起来看看有趣的表情包吧',
-    };
   },
 
   onTabClick(e) {
