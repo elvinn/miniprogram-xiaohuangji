@@ -52,7 +52,7 @@ Page({
     };
   },
 
-  initTab(imageDataList = '') {
+  initTab(tabName = '') {
     if (!tabName) {
       return;
     }
