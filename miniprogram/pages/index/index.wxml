@@ -1,3 +1,13 @@
+<wxs module="this">
+  // 是否展示 tab 下的表情包
+  function showTabContent(visitedTabList, tabIndex) {
+    return visitedTabList.indexOf(tabIndex) > -1;
+  }
+
+  module.exports = {
+    showTabContent: showTabContent,
+  }
+</wxs>
 <view class="container">
   <mp-tabs 
     tabs="{{imageDataList}}" 
@@ -10,7 +20,7 @@
   >
     <block wx:for="{{imageDataList}}" wx:key="title" wx:for-index="tabIndex">
       <view class="tab-content" data-set="{{item}}" slot="tab-content-{{tabIndex}}" bind:tap="handleClick" >
-        <view class="memo-list">
+        <view class="memo-list" wx:if="{{this.showTabContent(visitedTabList, tabIndex)}}">
           <view class="memo-item" wx:for="{{item.imageList}}" wx:key="url" wx:for-item="image">
             <image
               class="memo"

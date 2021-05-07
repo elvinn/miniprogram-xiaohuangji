@@ -15,6 +15,10 @@ const originImageData = [
     title: '胖虎',
     imageList: ["胖虎00001-意气风发.gif","胖虎00002-我真的很不错.gif","胖虎00003-靓仔总是孤独的.gif","胖虎00004我大雄今天就是要刁难你胖虎.gif","胖虎00005-感光波biubiu.gif","胖虎00006-胖虎射线biubiu.gif","胖虎00007-我胖虎跑步都是那么帅.gif","胖虎00008-我胖虎经不起刁难-你刁难我-我就打你.gif","胖虎00009-你要跟我胖虎作对吗.gif","胖虎00010-我大雄不出手你胖虎要上天了不成-害怕.gif","胖虎00011-看我干不干你就完事了.gif","胖虎00012-在干嘛-有点想你.gif","胖虎00013-我胖虎出去抽根烟-回来要看见八个红包，不然锤死在座各位.gif","胖虎00014-怎么了-我胖虎说的有毛病吗.gif","胖虎00015-我是你的双马尾小宝贝吗.gif","胖虎00016-我看-你他妈就是刁难我胖虎.gif","胖虎00017-谁特么在刁难我儿子胖虎.gif","胖虎00018-你胖虎算什么东西-我是你爸爸.gif","胖虎00019-胖虎-爸爸是多久没打你了.gif","胖虎00020-胖你妈的虎-老子叫刚田武.gif","胖虎00021-不好意思你们有没有见到我儿子胖虎-就是那个穿着屎黄色衣服装逼的那个.gif"], 
   },
+  {
+    title: '滑稽',
+    imageList: ["000000001.gif","滑稽大佬00001-360度鄙视你.gif","滑稽大佬00002-抱竹竿.gif","滑稽大佬00003-抱住-抱墙.gif","滑稽大佬00004-背书包-一名路过的小码农.jpg","滑稽大佬00005-菜刀-给你看看爸爸的厉害.gif","滑稽大佬00006-超怂-摩擦-抱住.jpg","滑稽大佬00007-打不着-打不到.gif","滑稽大佬00008-打人-可怜.gif","滑稽大佬00009-咚次嗒次咚咚哒.gif","滑稽大佬00010-反弹.gif","滑稽大佬00011-搞事-搞事情-酒瓶.gif","滑稽大佬00012-鼓掌.gif","滑稽大佬00013-哈腰-低头.gif","滑稽大佬00014-害怕-舞动青春版.gif","滑稽大佬00015-喝咖啡-咖啡.jpg","滑稽大佬00016-横向扭腰-划水.gif","滑稽大佬00017-夹心酱.gif","滑稽大佬00018-就不要-不要.gif","滑稽大佬00019-看我的腰-扭起来.gif","滑稽大佬00020-跪着-平移.gif","滑稽大佬00021-垃圾-辣鸡.gif","滑稽大佬00022-浪里个浪.gif","滑稽大佬00023-绿帽子-带上它你将拥有力量.jpg","滑稽大佬00024-猫-喵喵喵.gif","滑稽大佬00025-毛巾-布偶滑稽.jpg","滑稽大佬00026-秘技-反复横跳.gif","滑稽大佬00027-摸鱼.gif","滑稽大佬00028-脑子是个好东西希望你也有.gif","滑稽大佬00029-扭屁股-变色-内裤.gif","滑稽大佬00030-扭起来-斗舞.gif","滑稽大佬00031-啪啪啪.gif","滑稽大佬00032-劈叉-跳舞-卖艺.gif","滑稽大佬00033-皮球-磕头.gif","滑稽大佬00034-欠收拾.gif","滑稽大佬00035-提起-上吊.gif","滑稽大佬00036-投降.jpg","滑稽大佬00037-兔子-兔纸-看左边-看右边.gif","滑稽大佬00038-要饭.gif","滑稽大佬00039-左右横跳.gif"],
+  },
 ]
 const imageDataList = originImageData.map((item) => {
   const { imageList = [], title } = item;
@@ -35,6 +39,7 @@ Page({
     imageDataList,
     activeTab: 0, // 当前选中的 tab 下标
     showSubscribeBtn: false,
+    visitedTabList: [0], // 已经访问过的 tab 下标
   },
 
   onLoad({ tabName = '' }) {
@@ -61,7 +66,10 @@ Page({
     for (let i = 0; i < imageDataList.length; i++) {
       const { title = '' } = imageDataList[i] || {};
       if (title === tabName) {
-        this.setData({ activeTab: i });
+        this.setData({
+          activeTab: i,
+          visitedTabList: [i],
+        });
       }
     }
   },
@@ -91,27 +99,37 @@ Page({
     });
   },
 
+  // 更新选择 tab 后的数据
+  updateTabSelected(tabIndex) {
+    const newData = {
+      activeTab: tabIndex,
+    };
+
+    const {
+      visitedTabList = [],
+      imageDataList = [],
+    } = this.data;
+    if (!visitedTabList.includes(tabIndex)) {
+      visitedTabList.push(tabIndex);
+      newData.visitedTabList = visitedTabList;
+    }
+
+    this.setData(newData);
+
+    wx.reportAnalytics('switch_tab', {
+      tab_name: imageDataList[tabIndex].title,
+      tab_index: tabIndex,
+    });
+  },
+
   onTabClick(e) {
     const index = e.detail.index
-    this.setData({ 
-      activeTab: index 
-    })
+    this.updateTabSelected(index);
   },
 
   onChange(e) {
     const index = e.detail.index
-    this.setData({ 
-      activeTab: index 
-    })
-
-    const {
-      imageDataList = [],
-    } = this.data;
-
-    wx.reportAnalytics('switch_tab', {
-      tab_name: imageDataList[index].title,
-      tab_index: index,
-    });
+    this.updateTabSelected(index);
   },
   
   onTouchStart(event) {

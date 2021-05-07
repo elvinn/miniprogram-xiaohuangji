@@ -7,6 +7,7 @@
 ## 表情包来源
 
 1. [小黄鸡表情](https://github.com/esrrhs/xiaohuangji)
+2. [中国表情包大集合](https://github.com/zhaoolee/ChineseBQB)
 
 ## 尝试
 
