@@ -91,7 +91,7 @@ Page({
       } = res;
 
       // 请求成功且未订阅过消息
-      if (code === 0 || subscribeTimes === 0) {
+      if (code === 0 && subscribeTimes === 0) {
         this.setData({
           showSubscribeBtn: true,
         });
