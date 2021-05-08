@@ -10,18 +10,19 @@
     "value": {
       "type": "sendMessage",
       "messageId": "oaORJVUD1jVuKxnM0TCyCSJlUJU8CXAcNeVKLYsmWD0",
+      "page": "pages/index/index?tabName=滑稽",
       "testUserList": [
         "oZrKV5Kg_hCoHGVR33egWebu6Tpo"
       ],
       "data": {
         "thing1": {
-          "value": "猴子"
+          "value": "滑稽"
         },
         "thing4": {
-          "value": "搞笑的猴子"
+          "value": "快来看看滑稽表情包吧"
         },
         "time3": {
-          "value": "2021-04-21 13:20"
+          "value": "2021-05-08 17:20"
         }
       }
     }
