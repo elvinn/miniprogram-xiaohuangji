@@ -3,8 +3,9 @@
  * 用于获取表情包目录下所有的表情包名称
  */
 const fs = require('fs');
+const path = require('path');
 
-const imageFolder = './滑稽/';
+const imageFolder = path.join(__dirname, '../newImg');
 const data = [];
 
 fs.readdir(imageFolder, (err, files) => {
