@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="row">
+    <view class="key">appId:</view>
+    <view class="value">{{appId}}</view>
+  </view>
+  <view class="row">
+    <view class="key">path:</view>
+    <view class="value">{{path}}</view>
+  </view>
+  <view class="btn" catch:tap="onJump">点击跳转小程序</view>
+</view>

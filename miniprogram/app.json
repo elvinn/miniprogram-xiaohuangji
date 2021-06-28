@@ -9,5 +9,14 @@
     "navigationBarTitleText": "小黄表情包",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "subPackages": [
+    {
+      "root": "pages/jump",
+      "name": "jump",
+      "pages": [
+        "jump"
+      ]
+    }
+  ]
 }

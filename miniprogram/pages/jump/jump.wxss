@@ -1,0 +1,22 @@
+.container {
+  padding: 12rpx;
+}
+
+.row {
+  margin: 20rpx 0;
+  width: 100%;
+}
+
+.row .key {
+  font-size: 32rpx;
+}
+
+.row .value {
+  margin-left: 40rpx;
+  word-break: break-all;
+}
+
+.btn {
+  padding: 24rpx 36rpx;
+  background: #fdd868;
+}

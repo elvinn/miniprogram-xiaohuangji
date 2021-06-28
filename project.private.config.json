@@ -16,6 +16,12 @@
           "pathName": "pages/index/index",
           "query": "tabName=胖虎",
           "scene": null
+        },
+        {
+          "name": "跳转境外游礼包小程序",
+          "pathName": "pages/jump/jump",
+          "query": "path=pages%2Flocalmppage%2Flocalmppage%3FareaCode%3D392",
+          "scene": null
         }
       ]
     }
