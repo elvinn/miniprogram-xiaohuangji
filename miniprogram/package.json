@@ -4,10 +4,11 @@
   "description": "方便地分享表情包给微信好友。",
   "main": "index.js",
   "dependencies": {
-    "@miniprogram-component-plus/tabs": "^1.0.0"
+    "@miniprogram-component-plus/tabs": "^1.0.0",
+    "@tencent/mp-auto-test": "^0.0.2"
   },
-  "devDependencies": {},
   "scripts": {
+    "test:start_server": "mp-auto-test server 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

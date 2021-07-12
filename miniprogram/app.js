@@ -1,4 +1,7 @@
-//app.js
+const { recorder } = require('@tencent/mp-auto-test/index');
+
+recorder.init({ showLog: true });
+
 App({
   onLaunch: function () {
     this.globalData = {};
