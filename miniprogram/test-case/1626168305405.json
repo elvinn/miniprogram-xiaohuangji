@@ -1,15 +1,13 @@
 {
   "pagePath": "/pages/index/index",
-  "saveTime": "2021/7/12 下午7:00:35",
+  "saveTime": "2021/7/13 下午5:25:05",
   "eventList": [
-    {
-      "type": "takeScreenshot",
-      "scrollTop": 0
-    },
     {
       "type": "tap",
       "id": "item_1",
-      "dataset": {}
+      "dataset": {
+        "index": 1
+      }
     },
     {
       "type": "takeScreenshot",
@@ -18,16 +16,9 @@
     {
       "type": "tap",
       "id": "item_2",
-      "dataset": {}
-    },
-    {
-      "type": "takeScreenshot",
-      "scrollTop": 0
-    },
-    {
-      "type": "tap",
-      "id": "item_3",
-      "dataset": {}
+      "dataset": {
+        "index": 2
+      }
     },
     {
       "type": "takeScreenshot",

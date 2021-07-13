@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@miniprogram-component-plus/tabs": "^1.0.0",
-    "@tencent/mp-auto-test": "^0.0.2"
+    "@tencent/mp-auto-test": "^0.0.6"
   },
   "scripts": {
     "test:start_server": "mp-auto-test server 8080",
