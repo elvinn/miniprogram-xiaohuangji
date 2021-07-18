@@ -16,7 +16,8 @@
       "name": "jump",
       "pages": [
         "jump"
-      ]
+      ],
+      "independent": true
     }
   ]
 }
