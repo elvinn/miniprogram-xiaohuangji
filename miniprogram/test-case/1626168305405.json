@@ -1,0 +1,28 @@
+{
+  "pagePath": "/pages/index/index",
+  "saveTime": "2021/7/13 下午5:25:05",
+  "eventList": [
+    {
+      "type": "tap",
+      "id": "item_1",
+      "dataset": {
+        "index": 1
+      }
+    },
+    {
+      "type": "takeScreenshot",
+      "scrollTop": 0
+    },
+    {
+      "type": "tap",
+      "id": "item_2",
+      "dataset": {
+        "index": 2
+      }
+    },
+    {
+      "type": "takeScreenshot",
+      "scrollTop": 0
+    }
+  ]
+}

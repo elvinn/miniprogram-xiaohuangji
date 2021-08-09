@@ -11,7 +11,7 @@
 <view class="container">
   <mp-tabs 
     tabs="{{imageDataList}}" 
-    activeTab="{{activeTab}}" 
+    activeTab="{{activeTab}}"
     swiperClass="weui-tabs-swiper"
     bindtabclick="onTabClick"
     bindchange="onChange"
@@ -53,3 +53,5 @@
   <image class="mp-icon" src="/svgs/wx-logo-white.svg" />
   <view class="share-text">分享</view>
 </button>
+
+<auto-test-button visible />

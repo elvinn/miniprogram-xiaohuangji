@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "mp-tabs": "@miniprogram-component-plus/tabs"
+    "mp-tabs": "@miniprogram-component-plus/tabs",
+    "auto-test-button": "@tencent/mp-auto-test/components/auto-test-button"
   }
 }
