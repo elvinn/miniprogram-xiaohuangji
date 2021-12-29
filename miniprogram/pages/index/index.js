@@ -55,8 +55,12 @@ Page({
       from: event.from,
     });
 
+    const { activeTab } = this.data;
+    const tabName = imageDataList[activeTab].title || '';
+
     return {
-      title: '一起来看看有趣的表情包吧',
+      title: `一起来看看有趣的${tabName}表情包吧`,
+      path: `/pages/index/index?tabName=${tabName}`,
     };
   },
 
